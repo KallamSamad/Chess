@@ -48,6 +48,9 @@ bots to play against.			   | When the user presses chooses intermediate mode - t
 As a user, I want to see the chess |
 board so that I can play the game. |	When a game starts, an 8×8 board is displayed with all pieces in their 
 								   |	starting positions.
+								   
+As a user I can choose classic     | Before game starts, user can choose between the two set ups.
+or Chess960 set up.                |  
 
 As a user, I want to move chess    | When the user selects a valid piece and destination square, the piece moves.
 pieces so that I can play chess.   | When the user attempts an illegal move, the piece does not move.
