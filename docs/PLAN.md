@@ -1,5 +1,9 @@
 Chess app:
 
+////////////////////////////////////////////////////////////////////////////////////////
+
+ROUGH PLAN
+
 - This is a rough plan to make the chess app
 - Features to include:
 	* Visual board - may need external language for frontend? Need to draw the board somehow, 
@@ -13,7 +17,10 @@ Chess app:
 			>Board.cpp/h
 			>game.cpp/h
 	* Need database? For now, no, JSON is just fine
+	////////////////////////////////////////////////////////////////////////////////////////
 
+
+	STORIES AND TESTS
 
 			 
 	User Stories                  |                Acceptance test                          |				
@@ -126,3 +133,11 @@ during analysis.                  | is restored.
 As a user, I want saved games     | When the user loads a saved game, the board position, turn order, move
 to restore correctly.             | history, castling rights and en passant availability are restored.
                                   | The game continues from the saved position.
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+Board.h
+As an object, board has squares which form a 8x8 grid. So I need a constructor to initialise the empty board
