@@ -20,7 +20,7 @@ void Board::display() {
                 std::cout << std::endl;
             }
             else {
-                std::cout << 'X';
+                std::cout << squares[i];
             }
         }
     }
