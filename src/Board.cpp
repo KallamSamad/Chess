@@ -29,12 +29,25 @@ void Board::clearBoard()
     }
 }
 
+void Board::fileDisplay() {
+    std::cout << "   ";
+    for (size_t j{ 0 }; j < 8; j++) {
+        char file = 'a' + j;
+        std::cout << file << ' ';
+    }
 
+    std::cout << '\n';
+}
 //Functions
 
 void Board::display() {
+    fileDisplay();
+
     for (size_t i{ 0 }; i < 8; i++) {
+        std::cout << 8 - i<< ' '<< ' ';
         for (size_t j{ 0 }; j < 8; j++) {
+            char file = 'a' + j;
+
             if (squares[i * 8 + j] == nullptr) {
                 std::cout << 'O'<<' ';
             }
@@ -42,8 +55,10 @@ void Board::display() {
                 std::cout << squares[i * 8 + j]->getPiece()<<' ';
             }
         }
+
         std::cout << '\n';
     }
+    fileDisplay();
      
 }
 
@@ -59,13 +74,13 @@ void Board::placePiece(int row, int column, Colour colour) {
 
 void Board::backrankSetUp(Colour colour) {
     PieceType pieceOrder[8] = {PieceType::Rook, PieceType::Knight, PieceType::Bishop, PieceType::Queen,PieceType::King, PieceType::Bishop, PieceType::Knight, PieceType::Rook};
-    if (colour == Colour::White) {
+    if (colour == Colour::Black) {
         for (int x{ 0 }; x < 8; x++) {
             placePiece(0, x, pieceOrder[x], colour);
             placePiece(1, x, colour); //Overloaded fucntion
         }
     }
-    if (colour == Colour::Black) {
+    if (colour == Colour::White) {
         for (int x{ 0 }; x < 8; x++) {
             placePiece(7, x, pieceOrder[x], colour);
             placePiece(6, x, colour);//Overloaded fucntion
@@ -130,11 +145,11 @@ void Board::boardSetUp960() {
     pieceOrder[availablePositions[2]] = PieceType::Rook;
 
     for (int x{ 0 }; x < 8; x++) {
-        placePiece(0, x, pieceOrder[x], Colour::White);
-        placePiece(1, x, Colour::White);
+        placePiece(0, x, pieceOrder[x], Colour::Black);
+        placePiece(1, x, Colour::Black);
 
-        placePiece(7, x, pieceOrder[x], Colour::Black);
-        placePiece(6, x, Colour::Black);
+        placePiece(7, x, pieceOrder[x], Colour::White);
+        placePiece(6, x, Colour::White);
     }
 }
 Piece* Board::getPiece(int row, int column)
