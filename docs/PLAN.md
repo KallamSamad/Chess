@@ -143,4 +143,9 @@ to restore correctly.             | history, castling rights and en passant avai
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 Board.h
-As an object, board has squares which form a 8x8 grid. So I need a constructor to initialise the empty board
+As an object, board has squares which form a 8x8 grid. So I need a constructor to initialise the empty board and to create 
+what board looks like in normal set up
+
+Piece.h
+
+As an object the piece will be King, Queen, Knight, Bishop, Rook or Pawn.

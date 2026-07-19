@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Board.h" />
+    <ClInclude Include="include\Piece.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Board.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Piece.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
