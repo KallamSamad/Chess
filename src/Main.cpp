@@ -16,8 +16,8 @@ int main()
     board.display();
     board.clearBoard();
 
-    int row{ 4 };
-    int column{ 5 };
+    int row{ 7 };
+    int column{ 0 };
 
     std::cout << board.getChessNotation(row, column) << '\n';
 

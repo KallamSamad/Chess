@@ -46,7 +46,6 @@ void Board::display() {
     for (size_t i{ 0 }; i < 8; i++) {
         std::cout << 8 - i<< ' '<< ' ';
         for (size_t j{ 0 }; j < 8; j++) {
-            char file = 'a' + j;
 
             if (squares[i * 8 + j] == nullptr) {
                 std::cout << 'O'<<' ';
