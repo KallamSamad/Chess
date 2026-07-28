@@ -2,6 +2,7 @@
 
 #include "Piece.h"
 
+#include "Bishop.h"
 
 #include "Pawn.h"
 #include "Knight.h"

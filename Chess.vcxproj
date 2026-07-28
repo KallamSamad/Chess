@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Bishop.h" />
     <ClInclude Include="include\Board.h" />
     <ClInclude Include="include\Knight.h" />
     <ClInclude Include="include\Move.h" />
@@ -27,6 +28,7 @@
     <ClInclude Include="include\Turn.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Bishop.cpp" />
     <ClCompile Include="src\Board.cpp" />
     <ClCompile Include="src\Knight.cpp" />
     <ClCompile Include="src\Main.cpp" />
