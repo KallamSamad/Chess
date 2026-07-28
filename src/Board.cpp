@@ -1,7 +1,7 @@
 #include "Board.h"
 
 #include "Piece.h"
-
+#include "Queen.h"
 #include "Bishop.h"
 #include "Rook.h"
 #include "Pawn.h"

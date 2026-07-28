@@ -25,6 +25,7 @@
     <ClInclude Include="include\Move.h" />
     <ClInclude Include="include\Pawn.h" />
     <ClInclude Include="include\Piece.h" />
+    <ClInclude Include="include\Queen.h" />
     <ClInclude Include="include\Rook.h" />
     <ClInclude Include="include\Turn.h" />
   </ItemGroup>
@@ -36,6 +37,7 @@
     <ClCompile Include="src\Move.cpp" />
     <ClCompile Include="src\Pawn.cpp" />
     <ClCompile Include="src\Piece.cpp" />
+    <ClCompile Include="src\Queen.cpp" />
     <ClCompile Include="src\Rook.cpp" />
     <ClCompile Include="src\Turn.cpp" />
   </ItemGroup>

@@ -39,6 +39,9 @@
     <ClInclude Include="include\Rook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Queen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Board.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Rook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Queen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

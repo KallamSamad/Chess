@@ -91,19 +91,7 @@ public:
         return true; // temporary
     }
 };
-class Queen : public Piece
-{
-public:
-    Queen(Colour colour)
-        : Piece(PieceType::Queen, colour, 0, 0)
-    {
-    }
 
-    bool isValidMove(int, int, int, int) override
-    {
-        return true; // temporary
-    }
-};
 
  
 #endif
