@@ -7,30 +7,40 @@ Move::Move(Board& board)
     : board{ board }
 {
 }
+char Move::getPawnInput()
+{
+    char pawn;
 
-char Move::getPawnInput(char pawn) {
     do {
         std::cout << "Choose start pawn" << std::endl;
         std::cin >> pawn;
+
         if (pawn < 'a' || pawn > 'h') {
             std::cout << "Invalid Input! Choose from a-h";
         }
+
     } while (pawn < 'a' || pawn > 'h');
 
     return pawn;
 }
-int Move::getNumSpaces(int spaces) {
+int Move::getNumSpaces()
+{
+    int spaces;
+
     do {
-        std::cout << "Choose how many spaces " << std::endl;
+        std::cout << "Choose how many spaces" << std::endl;
         std::cin >> spaces;
+
         if (spaces != 1 && spaces != 2) {
             std::cout << "Invalid Input! Choose 1 or 2";
         }
+
     } while (spaces != 1 && spaces != 2);
 
     return spaces;
-
 }
+
+
 
 void Move::calculateDestination(char colour, int startRow, int spaces, int column) {
     if (colour == 'W') {
@@ -85,27 +95,45 @@ bool Move::isValidPawnMove(char colour, int startRow, int spaces, int column){
             return true;
         }
 }
-void Move::movePawn(int startRow, int numSpaces, char startColumn) {
-   
-    char pawn=getPawnInput(startColumn);
-    int spaces=getNumSpaces(numSpaces);
+void Move::movePawn(Colour col)
+{
+    char pawn = getPawnInput();
     int column = pawn - 'a';
+
+    int startRow;
+
+    if (col == Colour::White)
+    {
+        startRow = 6;
+    }
+    else
+    {
+        startRow = 1;
+    }
+
+    int spaces = getNumSpaces();
+
     movingPiece = board.getPiece(startRow, column);
 
-    if (movingPiece == nullptr) {
+    if (movingPiece == nullptr)
+    {
         std::cout << "There is no piece on that square!" << std::endl;
         return;
     }
-    else {
-        char colour = movingPiece->getColour();
-        calculateDestination(colour, startRow, spaces, column);
-        bool validPawn=isValidPawnMove(colour, startRow, spaces, column);
-        if (validPawn == true) {
-            board.setPiece(destinationRow, destinationColumn, movingPiece);
-            board.setPiece(startRow, column, nullptr);
-        }
-        else {
-            std::cout << "Invalid move!"<<std::endl;
-        }
-     }
+
+    char colour = movingPiece->getColour();
+
+    calculateDestination(colour, startRow, spaces, column);
+
+    bool validPawn = isValidPawnMove(colour, startRow, spaces, column);
+
+    if (validPawn)
+    {
+        board.setPiece(destinationRow, destinationColumn, movingPiece);
+        board.setPiece(startRow, column, nullptr);
+    }
+    else
+    {
+        std::cout << "Invalid move!" << std::endl;
+    }
 }

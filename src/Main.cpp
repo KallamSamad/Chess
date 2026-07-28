@@ -1,19 +1,14 @@
 #include "Board.h"
 #include "../include/Piece.h"
 #include "Move.h"
+#include "Turn.h"
 int main()
 {
     Board board;
 
-    board.boardSetUpClassic();
+    Game game;
 
-    Move move(board);
-
-    board.display();
-
-    move.movePawn(6, 1, 'a');
-
-    board.display();
+    game.gameLoop();
 
     return 0;
 }

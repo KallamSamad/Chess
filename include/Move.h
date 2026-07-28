@@ -44,5 +44,10 @@ public:
     int getNumSpaces(int spaces);
     bool isValidPawnMove(char colour, int startRow, int spaces, int column);
     void calculateDestination(char colour, int startRow, int spaces, int column);
+    void movePawn(Colour player);
+    char getPawnInput();
+    int getNumSpaces();
+    int getStartRow();
+
 };
 #endif
