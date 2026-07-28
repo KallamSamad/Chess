@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="include\Bishop.h" />
     <ClInclude Include="include\Board.h" />
+    <ClInclude Include="include\King.h" />
     <ClInclude Include="include\Knight.h" />
     <ClInclude Include="include\Move.h" />
     <ClInclude Include="include\Pawn.h" />
@@ -32,6 +33,7 @@
   <ItemGroup>
     <ClCompile Include="src\Bishop.cpp" />
     <ClCompile Include="src\Board.cpp" />
+    <ClCompile Include="src\King.cpp" />
     <ClCompile Include="src\Knight.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Move.cpp" />

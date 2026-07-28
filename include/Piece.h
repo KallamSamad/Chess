@@ -1,4 +1,4 @@
-#ifndef PIECE_H
+﻿#ifndef PIECE_H
 #define PIECE_H
 #include <iostream>
 #include <vector>
@@ -78,19 +78,6 @@ public:
     }
 };
 
-class King : public Piece
-{
-public:
-    King(Colour colour)
-        : Piece(PieceType::King, colour, 0, 0)
-    {
-    }
-
-    bool isValidMove(int, int, int, int) override
-    {
-        return true; // temporary
-    }
-};
 
 
  
