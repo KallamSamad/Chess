@@ -12,7 +12,7 @@ void Game::startGame()
 }
 
 
-void Game::takeTurn()
+bool Game::takeTurn()
 {
     std::string start;
     std::string destination;
@@ -28,7 +28,7 @@ void Game::takeTurn()
     if (start.length() != 2 || destination.length() != 2)
     {
         std::cout << "Invalid notation\n";
-        return;
+        return false;
     }
 
     if (start[0] < 'a' || start[0] > 'h' ||
@@ -37,7 +37,7 @@ void Game::takeTurn()
         destination[1] < '1' || destination[1] > '8')
     {
         std::cout << "Invalid square\n";
-        return;
+        return false;
     }
 
     // Convert chess notation to board coordinates
@@ -56,7 +56,7 @@ void Game::takeTurn()
     if (piece == nullptr)
     {
         std::cout << "No piece on that square!\n";
-        return;
+        return false;
     }
 
 
@@ -73,23 +73,27 @@ void Game::takeTurn()
     if (move.isValid())
     {
         move.execute();
+        return true;
     }
     else
     {
         std::cout << "Invalid move!\n";
+        return false;
     }
 }
 
 
-void Game::switchPlayer()
+std::string Game::switchPlayer()
 {
     if (currentPlayer == Colour::White)
-    {
+    {   
         currentPlayer = Colour::Black;
+        return "Black";
     }
     else
     {
         currentPlayer = Colour::White;
+        return "White";
     }
 }
 
@@ -109,16 +113,23 @@ void Game::gameLoop()
 {
     startGame();
 
-
     do
     {
         board.display();
 
-        takeTurn();
+        bool validMove = false;
 
-        switchPlayer();
+        while (!validMove)
+        {
+            validMove = takeTurn();
+        }
+
+        std::string player=switchPlayer();
 
         gameOver = checkGameOver();
+        std::cout << "\n";
+        std::cout << player<<"'s Turn" << std::endl;
 
-    } while (gameOver == false);
+
+    } while (!gameOver);
 }

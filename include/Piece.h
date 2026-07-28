@@ -119,19 +119,6 @@ public:
     }
 
 };
-class Knight : public Piece
-{
-public:
-    Knight(Colour colour)
-        : Piece(PieceType::Knight, colour, 0, 0)
-    {
-    }
-
-    bool isValidMove(int, int, int, int) override
-    {
-        return true; // temporary
-    }
-};
 class Rook : public Piece
 {
 public:

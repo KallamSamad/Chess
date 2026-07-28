@@ -1,7 +1,10 @@
 #include "Board.h"
-#include "Move.h"
-#include "Pawn.h"
+
 #include "Piece.h"
+
+
+#include "Pawn.h"
+#include "Knight.h"
 
 #include <random>
  

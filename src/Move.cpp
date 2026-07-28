@@ -31,6 +31,12 @@ bool Move::isValid()
 
 void Move::execute()
 {
+    Piece* capturedPiece = board.getPiece(destinationRow, destinationColumn);
+
+    if (capturedPiece != nullptr)
+    {
+        delete capturedPiece;
+    }
     board.setPiece(destinationRow, destinationColumn, movingPiece);
     board.setPiece(startRow, startColumn, nullptr);
 }

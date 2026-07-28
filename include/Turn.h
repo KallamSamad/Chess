@@ -16,11 +16,11 @@ public:
 
     void startGame();
 
-    void takeTurn();
+    bool takeTurn();
 
     void gameLoop();
 
-    void switchPlayer();
+    std::string switchPlayer();
 
     bool checkGameOver();
 };
