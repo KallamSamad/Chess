@@ -16,8 +16,7 @@ public:
     ~Board();
     // Functions
     void display();
-    void placePiece(int row,int column,PieceType pieceType, Colour colour);
-    void placePiece(int row, int column, Colour colour);//Overloaded fucntion
+    void placePiece(int row, int column, PieceType pieceType, Colour colour);
     void clearBoard();
     void fileDisplay();
     std::string getChessNotation(int row, int column);

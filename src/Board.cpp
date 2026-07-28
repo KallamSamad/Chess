@@ -1,4 +1,8 @@
 #include "Board.h"
+#include "Move.h"
+#include "Pawn.h"
+#include "Piece.h"
+
 #include <random>
  
 //Constructor
@@ -51,7 +55,7 @@ void Board::display() {
                 std::cout << 'O'<<' ';
             }
             else {
-                std::cout << squares[i * 8 + j]->getPiece()<<' ';
+                std::cout << squares[i * 8 + j]->getPieceSymbol()<<' ';
             }
         }
 
@@ -61,13 +65,38 @@ void Board::display() {
      
 }
 
-void Board::placePiece(int row, int column, PieceType pieceType, Colour colour) {
-    squares[row * 8 + column] =
-        new Piece(pieceType, colour, row, column);
-}
-void Board::placePiece(int row, int column, Colour colour) {
-    squares[row * 8 + column] =
-        new Piece(PieceType::Pawn, colour, row, column);
+void Board::placePiece(int row, int column, PieceType pieceType, Colour colour)
+{
+    switch (pieceType)
+    {
+    case PieceType::Pawn:
+        squares[row * 8 + column] = new Pawn(colour);
+        break;
+
+          case PieceType::Knight:
+             squares[row * 8 + column] = new Knight(colour);
+             break;
+
+         case PieceType::Bishop:
+             squares[row * 8 + column] = new Bishop(colour);
+             break;
+
+         case PieceType::Rook:
+             squares[row * 8 + column] = new Rook(colour);
+             break;
+
+         case PieceType::Queen:
+             squares[row * 8 + column] = new Queen(colour);
+             break;
+
+         case PieceType::King:
+             squares[row * 8 + column] = new King(colour);
+             break;
+
+    default:
+        squares[row * 8 + column] = nullptr;
+        break;
+    }
 }
 
 
@@ -76,13 +105,13 @@ void Board::backrankSetUp(Colour colour) {
     if (colour == Colour::Black) {
         for (int x{ 0 }; x < 8; x++) {
             placePiece(0, x, pieceOrder[x], colour);
-            placePiece(1, x, colour); //Overloaded fucntion
+            placePiece(1, x, PieceType::Pawn, colour);
         }
     }
     if (colour == Colour::White) {
         for (int x{ 0 }; x < 8; x++) {
             placePiece(7, x, pieceOrder[x], colour);
-            placePiece(6, x, colour);//Overloaded fucntion
+            placePiece(6, x, PieceType::Pawn, colour);
 
         }
     }
@@ -145,18 +174,21 @@ void Board::boardSetUp960() {
 
     for (int x{ 0 }; x < 8; x++) {
         placePiece(0, x, pieceOrder[x], Colour::Black);
-        placePiece(1, x, Colour::Black);
+        placePiece(1, x, PieceType::Pawn, Colour::Black);
 
         placePiece(7, x, pieceOrder[x], Colour::White);
-        placePiece(6, x, Colour::White);
+        placePiece(6, x, PieceType::Pawn, Colour::White);
     }
 }
 Piece* Board::getPiece(int row, int column)
 {
+    if (row < 0 || row >= 8 || column < 0 || column >= 8)
+    {
+        return nullptr;
+    }
+
     return squares[row * 8 + column];
 }
-
-
 void Board::setPiece(int row, int column, Piece* piece)
 {
     squares[row * 8 + column] = piece;

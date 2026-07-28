@@ -24,45 +24,125 @@ enum class Colour {
 class Piece {
 
 private:
-	PieceType attribute;
-	Colour pieceColour;
-	int row;
-	int column;
+    PieceType attribute;
+    Colour pieceColour;
+    int row;
+    int column;
+
 public:
-	//constructor
 
-	Piece(PieceType, Colour, int row, int column);
+    Piece(PieceType, Colour, int row, int column);
+
+    virtual bool isValidMove(
+        int startRow,
+        int startColumn,
+        int destinationRow,
+        int destinationColumn
+    ) = 0;
 
 
-	//functions 
-	char getPiece() {
-		switch (attribute) {
-		case PieceType::King:
-			return 'K';
-		case PieceType::Queen:
-			return 'Q';
-		case PieceType::Rook:
-			return 'R';
-		case PieceType::Bishop:
-			return 'B';
-		case PieceType::Knight:
-			return 'N';
-		case PieceType::Pawn:
-			return 'P';
-		default:
-			std::logic_error(R"(Invalid piece type)");
-		}
-	}
-	char getColour() {
-		switch (pieceColour) {
-		case Colour::White:
-			return 'W';
-		case Colour::Black:
-			return 'B';
-		default:
-			std::logic_error(R"(Invalid Colour)");
-		}
-	}
+    Colour getColour() const
+    {
+        return pieceColour;
+    }
+
+    PieceType getPiece() const {
+        return attribute;
+    }
+
+    char getPieceSymbol() const
+    {
+        switch (attribute)
+        {
+        case PieceType::King:
+            return 'K';
+
+        case PieceType::Queen:
+            return 'Q';
+
+        case PieceType::Rook:
+            return 'R';
+
+        case PieceType::Bishop:
+            return 'B';
+
+        case PieceType::Knight:
+            return 'N';
+
+        case PieceType::Pawn:
+            return 'P';
+
+        default:
+            return ' ';
+        }
+    }
 };
 
+class King : public Piece
+{
+public:
+    King(Colour colour)
+        : Piece(PieceType::King, colour, 0, 0)
+    {
+    }
+
+    bool isValidMove(int, int, int, int) override
+    {
+        return true; // temporary
+    }
+};
+class Queen : public Piece
+{
+public:
+    Queen(Colour colour)
+        : Piece(PieceType::Queen, colour, 0, 0)
+    {
+    }
+
+    bool isValidMove(int, int, int, int) override
+    {
+        return true; // temporary
+    }
+};
+
+class Bishop : public Piece
+{
+public:
+    Bishop(Colour colour)
+        : Piece(PieceType::Bishop, colour, 0, 0)
+    {
+    }
+
+    bool isValidMove(int, int, int, int) override
+    {
+        return true; // temporary
+    }
+
+};
+class Knight : public Piece
+{
+public:
+    Knight(Colour colour)
+        : Piece(PieceType::Knight, colour, 0, 0)
+    {
+    }
+
+    bool isValidMove(int, int, int, int) override
+    {
+        return true; // temporary
+    }
+};
+class Rook : public Piece
+{
+public:
+    Rook(Colour colour)
+        : Piece(PieceType::Rook, colour, 0, 0)
+    {
+    }
+
+    bool isValidMove(int, int, int, int) override
+    {
+        return true; // temporary
+    }
+};
 #endif
