@@ -105,17 +105,5 @@ public:
     }
 };
 
-class Rook : public Piece
-{
-public:
-    Rook(Colour colour)
-        : Piece(PieceType::Rook, colour, 0, 0)
-    {
-    }
-
-    bool isValidMove(int, int, int, int) override
-    {
-        return true; // temporary
-    }
-};
+ 
 #endif

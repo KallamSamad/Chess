@@ -3,7 +3,7 @@
 #include "Piece.h"
 
 #include "Bishop.h"
-
+#include "Rook.h"
 #include "Pawn.h"
 #include "Knight.h"
 

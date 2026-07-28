@@ -16,10 +16,13 @@ bool Bishop::isValidMove(int startRow, int startColumn, int destinationRow, int 
     int columnDifference = abs(destinationColumn - startColumn);
 
 
-    if (rowDifference ==  columnDifference) {
-        return true;
+    if (rowDifference == 0 && columnDifference == 0)
+    {
+        return false;
     }
 
-
-    return false;
+    if (rowDifference == columnDifference)
+    {
+        return true;
+    }
 }
