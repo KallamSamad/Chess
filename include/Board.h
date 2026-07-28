@@ -27,6 +27,7 @@ public:
     void backrankSetUp(Colour colour);
     void boardSetUpClassic();
     void boardSetUp960();
+    void setPiece(int row, int column, Piece* piece);
 };
 
 #endif

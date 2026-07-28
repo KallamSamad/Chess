@@ -149,3 +149,7 @@ what board looks like in normal set up
 Piece.h
 
 As an object the piece will be King, Queen, Knight, Bishop, Rook or Pawn.
+
+Move.h
+
+I need logic to move a piece from one place to another. Maybe I need to include all the rules for the chess pieces too.

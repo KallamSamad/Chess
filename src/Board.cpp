@@ -156,4 +156,8 @@ Piece* Board::getPiece(int row, int column)
     return squares[row * 8 + column];
 }
 
- 
+
+void Board::setPiece(int row, int column, Piece* piece)
+{
+    squares[row * 8 + column] = piece;
+}
