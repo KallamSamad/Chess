@@ -20,14 +20,64 @@ Move::Move(Board& board, Piece* piece,
 
 bool Move::isValid()
 {
-    return movingPiece->isValidMove(
+    Piece* destinationPiece =
+        board.getPiece(destinationRow, destinationColumn);
+
+    if (destinationPiece != nullptr &&
+        destinationPiece->getColour() == movingPiece->getColour())
+    {
+        return false;
+    }
+
+    if (!movingPiece->isValidMove(
         startRow,
         startColumn,
         destinationRow,
-        destinationColumn
-    );
-}
+        destinationColumn))
+    {
+        return false;
+    }
 
+    PieceType type = movingPiece->getPiece();
+    int rowDifference = abs(destinationRow - startRow);
+    int columnDifference = abs(destinationColumn - startColumn);
+
+    if (type == PieceType::Pawn) {
+        if (destinationPiece != nullptr)
+        {
+            if (rowDifference == 1 && columnDifference == 1)
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        if (destinationPiece == nullptr)
+        {
+            if (rowDifference == 1 && columnDifference == 1) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+
+    if (type == PieceType::Rook ||
+        type == PieceType::Bishop ||
+        type == PieceType::Queen)
+    {
+        if (!board.isPathClear(startRow, startColumn,
+            destinationRow, destinationColumn))
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 void Move::execute()
 {

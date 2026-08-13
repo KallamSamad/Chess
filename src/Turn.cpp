@@ -52,13 +52,17 @@ bool Game::takeTurn()
 
     Piece* piece = board.getPiece(startRow, startColumn);
 
-
     if (piece == nullptr)
     {
         std::cout << "No piece on that square!\n";
         return false;
     }
 
+    if (piece->getColour() != currentPlayer)
+    {
+        std::cout << "That's not your piece!\n";
+        return false;
+    }
 
     Move move(
         board,

@@ -22,7 +22,7 @@ public:
     std::string getChessNotation(int row, int column);
 
     Piece* getPiece(int row, int column);
-
+    bool isPathClear(int startRow,int startColumn,int destinationRow,int destinationColumn);
     void backrankSetUp(Colour colour);
     void boardSetUpClassic();
     void boardSetUp960();

@@ -197,3 +197,36 @@ void Board::setPiece(int row, int column, Piece* piece)
 {
     squares[row * 8 + column] = piece;
 }
+bool Board::isPathClear(
+    int startRow,
+    int startColumn,
+    int destinationRow,
+    int destinationColumn)
+{
+    int rowStep = 0;
+    int columnStep = 0;
+
+    if (destinationRow > startRow)
+        rowStep = 1;
+    else if (destinationRow < startRow)
+        rowStep = -1;
+
+    if (destinationColumn > startColumn)
+        columnStep = 1;
+    else if (destinationColumn < startColumn)
+        columnStep = -1;
+
+    int row = startRow + rowStep;
+    int column = startColumn + columnStep;
+
+    while (row != destinationRow || column != destinationColumn)
+    {
+        if (getPiece(row, column) != nullptr)
+            return false;
+
+        row += rowStep;
+        column += columnStep;
+    }
+
+    return true;
+}
